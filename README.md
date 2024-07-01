@@ -1,1 +1,1 @@
-# GodotTechDemo
+This is a project made for me to mess with the Godot Engine to figure out how to use it to make a small project, There is currently no clear end product as I explore, but I will make a game in the future with this project.
