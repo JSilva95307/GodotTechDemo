@@ -1,3 +1,34 @@
-[gd_scene format=3 uid="uid://bgw8x53ln2rp7"]
+[gd_scene load_steps=5 format=3 uid="uid://bgw8x53ln2rp7"]
+
+[ext_resource type="PackedScene" uid="uid://cqs05ujvangep" path="res://Scenes/Player.tscn" id="1_tpfrc"]
+[ext_resource type="Texture2D" uid="uid://wo87ovqcox61" path="res://Assets/Sprites/Ground Tiles.png" id="2_6mobc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dxw55"]
+texture = ExtResource("2_6mobc")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h7o51"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_dxw55")
 
 [node name="Level 1" type="Node2D"]
+
+[node name="Player Body" parent="." instance=ExtResource("1_tpfrc")]
+position = Vector2(291, 161)
+
+[node name="Player Camera" type="Camera2D" parent="Player Body"]
+position = Vector2(-291, -161)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_h7o51")
+format = 2
