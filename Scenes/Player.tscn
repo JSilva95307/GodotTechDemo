@@ -41,6 +41,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycu3h"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(4.64, 4.64)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3.57628e-07, -0.999999)
