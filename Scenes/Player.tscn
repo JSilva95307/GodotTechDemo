@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://Scenes/state_machine.gd" id="3_32w1a"]
 [ext_resource type="Texture2D" uid="uid://bvuy8mao3eb5m" path="res://Assets/Sprites/PlayerPlaceholder_SpriteSheet.png" id="3_idsoy"]
 [ext_resource type="Script" path="res://Scenes/idle.gd" id="4_tf1ds"]
+[ext_resource type="Script" path="res://Scenes/dash.gd" id="6_kynrl"]
 [ext_resource type="Script" path="res://Scenes/run.gd" id="6_r7fv8"]
 [ext_resource type="Script" path="res://Scenes/jump.gd" id="7_e3om2"]
-[ext_resource type="Script" path="res://Assets/States/PlayerState.gd" id="8_v1xlh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycu3h"]
 
@@ -157,7 +157,7 @@ script = ExtResource("6_r7fv8")
 animation_player = NodePath("../../AnimationPlayer")
 
 [node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("8_v1xlh")
+script = ExtResource("6_kynrl")
 animation_player = NodePath("../../AnimationPlayer")
 
 [node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player")]

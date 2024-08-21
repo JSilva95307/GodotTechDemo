@@ -5,13 +5,12 @@ func Enter():
 
 func Physics_Update(delta: float) ->void:
 	var direction := Input.get_axis("Player_Left", "Player_Right")
-	#if direction > 0:
-		#Dash_Dir = Vector2(1, 0)
-		#IsFacingRight = true
-	#elif direction < 0:
-		#Dash_Dir = Vector2(-1, 0)
-		#IsFacingRight = false
-	#if not IsDashing:
+	if direction > 0:
+		player.Dash_Dir = Vector2(1, 0)
+		player.IsFacingRight = true
+	elif direction < 0:
+		player.Dash_Dir = Vector2(-1, 0)
+		player.IsFacingRight = false
 	if direction:
 		player.velocity.x = direction * player.SPEED
 	else:
@@ -26,4 +25,5 @@ func Physics_Update(delta: float) ->void:
 		Transitioned.emit(self, "jump")
 	if(direction == 0):
 		Transitioned.emit(self, "idle")
-	#player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
+	if Input.is_action_just_pressed("Player_Dash") and player.Can_Dash:
+		Transitioned.emit(self, "dash")
