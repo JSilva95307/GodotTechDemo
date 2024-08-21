@@ -1,6 +1,6 @@
 class_name PlayerState	extends State
 
-@export var player : Player
+var player : Player
 @export var animation_player: AnimationPlayer
 
 func _ready():
