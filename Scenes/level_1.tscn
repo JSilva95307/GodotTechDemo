@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://bgw8x53ln2rp7"]
+[gd_scene load_steps=6 format=4 uid="uid://bgw8x53ln2rp7"]
 
 [ext_resource type="PackedScene" uid="uid://cqs05ujvangep" path="res://Scenes/Player.tscn" id="1_tpfrc"]
 [ext_resource type="Texture2D" uid="uid://wo87ovqcox61" path="res://Assets/Sprites/Ground Tiles.png" id="2_f0h8e"]
+[ext_resource type="PackedScene" uid="uid://bumhc21ve4agw" path="res://Scenes/slime.tscn" id="3_ooy25"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lelxj"]
 texture = ExtResource("2_f0h8e")
@@ -36,6 +37,9 @@ position = Vector2(319, 230)
 position = Vector2(-3.23275, 2.15517)
 scale = Vector2(1.2069, 1.2069)
 zoom = Vector2(0.75, 0.75)
+
+[node name="Slime" parent="." instance=ExtResource("3_ooy25")]
+position = Vector2(1172, 242)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(88, 44)
