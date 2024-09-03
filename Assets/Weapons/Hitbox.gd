@@ -1,5 +1,9 @@
-class_name base_hitbox extends Area2D
+class_name Hitbox extends Area2D
 
+@export var damage  = 0
+
+func _init() -> void:
+	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

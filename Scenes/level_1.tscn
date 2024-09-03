@@ -39,7 +39,7 @@ scale = Vector2(1.2069, 1.2069)
 zoom = Vector2(0.75, 0.75)
 
 [node name="Slime" parent="." instance=ExtResource("3_ooy25")]
-position = Vector2(1172, 242)
+position = Vector2(1450, 244)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(88, 44)

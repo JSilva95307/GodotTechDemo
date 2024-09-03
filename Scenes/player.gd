@@ -15,13 +15,14 @@ class_name Player extends CharacterBody2D
 @export var IsDashing = false
 @export var IsInvul = false
 @export var IsFacingRight = false
+@export var direction = 0
 
 func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
 	if not is_on_floor() and not IsDashing:
 		velocity += get_gravity() * delta * 2
-	
+	direction = Input.get_axis("Player_Left", "Player_Right")
 	move_and_slide()
 
 func StartDashCD() :
@@ -30,21 +31,3 @@ func StartDashCD() :
 	await(get_tree().create_timer(Dash_Cooldown)).timeout
 	Can_Dash = true
 	print_debug("Dash is ready!")
-
-#func StartDash() -> void:	
-	## Set dashing and invulnurability
-	#IsDashing = true
-	#IsInvul = true
-	## Half the distance for AirDashing
-	#if not is_on_floor():
-		#velocity = Dash_Dir.normalized() * (DASH_SPEED * 0.75)
-	#else:
-		#velocity = Dash_Dir.normalized() * DASH_SPEED
-	#await(get_tree().create_timer(DASH_TIME)).timeout
-	#EndDash()
-#
-#func EndDash() -> void:
-	## Reset bools and vars
-	#velocity = Vector2(0, 0);
-	#IsDashing = false
-	#IsInvul = false
