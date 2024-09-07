@@ -1,4 +1,4 @@
-class_name weapon_base extends Node
+class_name weapon_base extends Node2D
 
 #Primary Combo Hitboxes
 @export var primary1 : Hitbox

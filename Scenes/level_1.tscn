@@ -31,7 +31,7 @@ sources/0 = SubResource("TileSetAtlasSource_lelxj")
 [node name="Level 1" type="Node2D"]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_tpfrc")]
-position = Vector2(319, 230)
+position = Vector2(318, 230)
 
 [node name="Player Camera" type="Camera2D" parent="PlayerCharacter"]
 position = Vector2(-3.23275, 2.15517)

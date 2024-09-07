@@ -1,15 +1,19 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqs05ujvangep"]
+[gd_scene load_steps=20 format=3 uid="uid://cqs05ujvangep"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_mm5sl"]
 [ext_resource type="Script" path="res://Scenes/state_machine.gd" id="3_32w1a"]
 [ext_resource type="Texture2D" uid="uid://bvuy8mao3eb5m" path="res://Assets/Sprites/PlayerPlaceholder_SpriteSheet.png" id="3_idsoy"]
+[ext_resource type="Script" path="res://Assets/Scripts/Hurtbox.gd" id="3_v82qo"]
 [ext_resource type="Script" path="res://Scenes/idle.gd" id="4_tf1ds"]
 [ext_resource type="Script" path="res://Scenes/dash.gd" id="6_kynrl"]
 [ext_resource type="Script" path="res://Scenes/run.gd" id="6_r7fv8"]
 [ext_resource type="Script" path="res://Scenes/jump.gd" id="7_e3om2"]
 [ext_resource type="Script" path="res://Scenes/weapon_manager.gd" id="8_p37xt"]
+[ext_resource type="PackedScene" uid="uid://mekjd5aptohs" path="res://Scenes/Sword.tscn" id="10_akbhc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycu3h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f6f7n"]
 
 [sub_resource type="Animation" id="Animation_c05vp"]
 resource_name = "Player_Dash"
@@ -133,7 +137,7 @@ _data = {
 }
 
 [node name="PlayerBody" type="CharacterBody2D" groups=["Player"]]
-position = Vector2(0, -47)
+position = Vector2(0.999985, -47)
 scale = Vector2(4.64, 4.64)
 script = ExtResource("1_mm5sl")
 
@@ -145,8 +149,16 @@ hframes = 5
 vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -0.215517)
 shape = SubResource("CircleShape2D_ycu3h")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+scale = Vector2(1, 1)
+script = ExtResource("3_v82qo")
+
+[node name="Player_Hurtbox" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_f6f7n")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
@@ -158,10 +170,6 @@ autoplay = "Player_Idle"
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_32w1a")
 initial_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("4_tf1ds")
-animation_player = NodePath("../../AnimationPlayer")
 
 [node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("6_r7fv8")
@@ -175,5 +183,14 @@ animation_player = NodePath("../../AnimationPlayer")
 script = ExtResource("7_e3om2")
 animation_player = NodePath("../../AnimationPlayer")
 
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("4_tf1ds")
+animation_player = NodePath("../../AnimationPlayer")
+
 [node name="WeaponManager" type="Node2D" parent="."]
+position = Vector2(-0.862069, -0.215517)
 script = ExtResource("8_p37xt")
+
+[node name="Sword" parent="." instance=ExtResource("10_akbhc")]
+position = Vector2(-0.215514, 10.1293)
+scale = Vector2(0.225862, 0.217244)

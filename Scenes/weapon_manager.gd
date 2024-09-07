@@ -1,11 +1,11 @@
 class_name weapon_manager extends Node2D
 
 #save all of the weapons here for future switching and in case we want to add more weapons later
-@export var weapon_list = [] 	
+@export var weapon_list: Array[weapon_base]
 
 #default number of hitboxes for the different weapons
 	#Primary Combo
-@export var active_primaryHits = []
+@export var active_primaryHits : Array[Hitbox]
 	#Secondary and abilities 1 + 2
 @export var active_secondaryHit : Hitbox
 @export var active_ability1Hit : Hitbox

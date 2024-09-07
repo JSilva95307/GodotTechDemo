@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://mekjd5aptohs"]
+
+[ext_resource type="Script" path="res://Assets/Weapons/WeaponBase.gd" id="1_g4wfn"]
+[ext_resource type="Script" path="res://Assets/Weapons/Hitbox.gd" id="2_6xjgr"]
+[ext_resource type="Texture2D" uid="uid://c64fye78qoshs" path="res://icon.svg" id="3_37238"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yryjv"]
+size = Vector2(151.5, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4sls"]
+size = Vector2(173.5, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw5vr"]
+size = Vector2(222.5, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_827nf"]
+size = Vector2(201.5, 140.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lpy7h"]
+radius = 74.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyrph"]
+size = Vector2(346, 101)
+
+[node name="Sword" type="Node2D" node_paths=PackedStringArray("primary1", "primary2", "primary3", "secondary", "ability1", "ability2")]
+scale = Vector2(0.2, 0.200002)
+script = ExtResource("1_g4wfn")
+primary1 = NodePath("Primary 1")
+primary2 = NodePath("Primary 2")
+primary3 = NodePath("Primary 3")
+secondary = NodePath("Secondary")
+ability1 = NodePath("Ability 1")
+ability2 = NodePath("Ability 2")
+
+[node name="Primary 1" type="Area2D" parent="."]
+script = ExtResource("2_6xjgr")
+
+[node name="Short Hitbox" type="CollisionShape2D" parent="Primary 1"]
+position = Vector2(76.25, -38.5)
+shape = SubResource("RectangleShape2D_yryjv")
+
+[node name="Primary 2" type="Area2D" parent="."]
+script = ExtResource("2_6xjgr")
+
+[node name="Medium Hitbox" type="CollisionShape2D" parent="Primary 2"]
+position = Vector2(87.25, -51.5)
+shape = SubResource("RectangleShape2D_a4sls")
+
+[node name="Primary 3" type="Area2D" parent="."]
+script = ExtResource("2_6xjgr")
+
+[node name="Long Hitbox" type="CollisionShape2D" parent="Primary 3"]
+position = Vector2(111.75, -34)
+shape = SubResource("RectangleShape2D_xw5vr")
+
+[node name="Secondary" type="Area2D" parent="."]
+script = ExtResource("2_6xjgr")
+
+[node name="Large Hitbox" type="CollisionShape2D" parent="Secondary"]
+position = Vector2(101.25, -70.75)
+shape = SubResource("RectangleShape2D_827nf")
+
+[node name="Ability 1" type="Area2D" parent="."]
+script = ExtResource("2_6xjgr")
+
+[node name="Medium Hitbox" type="CollisionShape2D" parent="Ability 1"]
+position = Vector2(83, -56)
+shape = SubResource("CircleShape2D_lpy7h")
+
+[node name="Ability 2" type="Area2D" parent="."]
+script = ExtResource("2_6xjgr")
+
+[node name="Wide Hitbox" type="CollisionShape2D" parent="Ability 2"]
+position = Vector2(1, -51.5)
+shape = SubResource("RectangleShape2D_jyrph")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(65.0001, -29.9997)
+scale = Vector2(1.00022, 0.187171)
+texture = ExtResource("3_37238")

@@ -16,13 +16,18 @@ class_name Player extends CharacterBody2D
 @export var IsInvul = false
 @export var IsFacingRight = false
 @export var direction = 0
+#health and number vars
+@export var health = 20.0
+
+var cur_dir = 1
 
 func _physics_process(delta: float) -> void:
-	
 	# Add the gravity.
 	if not is_on_floor() and not IsDashing:
 		velocity += get_gravity() * delta * 2
 	direction = Input.get_axis("Player_Left", "Player_Right")
+	if cur_dir != direction and direction != 0:
+		flip_player()
 	move_and_slide()
 
 func StartDashCD() :
@@ -31,3 +36,13 @@ func StartDashCD() :
 	await(get_tree().create_timer(Dash_Cooldown)).timeout
 	Can_Dash = true
 	print_debug("Dash is ready!")
+
+func take_damage(damage: float) -> void:
+	health -= damage
+
+func heal(heal_amount : float) -> void:
+	health += abs(heal_amount)
+
+func flip_player() -> void:
+	scale.x *= -1
+	cur_dir = direction
