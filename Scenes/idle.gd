@@ -10,11 +10,8 @@ func Physics_Update(delta: float) -> void:
 	if Input.is_action_just_pressed("Player_Jump"):
 		player.velocity.y = player.JUMP_VELOCITY
 		Transitioned.emit(self, "jump")
-	#
-	## Handle Jump Height
-	#if Input.is_action_just_released("Player_Jump") and not LetSpaceGo and velocity.y <= 0:
-		#velocity.y = 0 #get_real_velocity().y * 0.25;
-		#LetSpaceGo = true
+	
+	#transition states
 	if Input.is_action_pressed("Player_Left") or Input.is_action_pressed("Player_Right"):
 		Transitioned.emit(self, "run")
 	if Input.is_action_just_pressed("Player_Dash") and player.Can_Dash:

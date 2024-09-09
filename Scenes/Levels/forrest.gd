@@ -1,0 +1,1 @@
+class_name forrest_map extends level_manager

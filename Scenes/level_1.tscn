@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://wo87ovqcox61" path="res://Assets/Sprites/Ground Tiles.png" id="2_f0h8e"]
 [ext_resource type="PackedScene" uid="uid://bumhc21ve4agw" path="res://Scenes/slime.tscn" id="3_ooy25"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lelxj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mcjpp"]
 texture = ExtResource("2_f0h8e")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(128, 128)
@@ -26,7 +26,7 @@ texture_region_size = Vector2i(128, 128)
 [sub_resource type="TileSet" id="TileSet_ruwgd"]
 tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_lelxj")
+sources/0 = SubResource("TileSetAtlasSource_mcjpp")
 
 [node name="Level 1" type="Node2D"]
 

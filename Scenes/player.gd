@@ -20,6 +20,7 @@ class_name Player extends CharacterBody2D
 @export var health = 20.0
 
 var cur_dir = 1
+signal player_death
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -39,6 +40,10 @@ func StartDashCD() :
 
 func take_damage(damage: float) -> void:
 	health -= damage
+	print_debug( str(damage) + " damage taken!")
+	print_debug( str(health) + " health remains!")
+	if health <= 0:
+		player_death.emit()
 
 func heal(heal_amount : float) -> void:
 	health += abs(heal_amount)
