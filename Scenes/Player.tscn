@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cqs05ujvangep"]
+[gd_scene load_steps=23 format=3 uid="uid://cqs05ujvangep"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_mm5sl"]
 [ext_resource type="Script" path="res://Scenes/state_machine.gd" id="3_32w1a"]
@@ -9,7 +9,10 @@
 [ext_resource type="Script" path="res://Scenes/run.gd" id="6_r7fv8"]
 [ext_resource type="Script" path="res://Scenes/jump.gd" id="7_e3om2"]
 [ext_resource type="Script" path="res://Scenes/weapon_manager.gd" id="8_p37xt"]
+[ext_resource type="Script" path="res://Assets/States/attack_1.gd" id="9_4ljlb"]
+[ext_resource type="Script" path="res://Assets/States/attack_2.gd" id="10_0yk3b"]
 [ext_resource type="PackedScene" uid="uid://mekjd5aptohs" path="res://Scenes/Sword.tscn" id="10_akbhc"]
+[ext_resource type="Script" path="res://Assets/States/attack_3.gd" id="11_a465j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycu3h"]
 
@@ -185,10 +188,19 @@ animation_player = NodePath("../../AnimationPlayer")
 script = ExtResource("4_tf1ds")
 animation_player = NodePath("../../AnimationPlayer")
 
+[node name="Attack1" type="Node" parent="StateMachine"]
+script = ExtResource("9_4ljlb")
+
+[node name="Attack2" type="Node" parent="StateMachine"]
+script = ExtResource("10_0yk3b")
+
+[node name="Attack3" type="Node" parent="StateMachine"]
+script = ExtResource("11_a465j")
+
 [node name="WeaponManager" type="Node2D" parent="."]
 position = Vector2(-0.862069, -0.215517)
 script = ExtResource("8_p37xt")
 
-[node name="Sword" parent="." instance=ExtResource("10_akbhc")]
-position = Vector2(-0.215514, 10.1293)
+[node name="Sword" parent="WeaponManager" instance=ExtResource("10_akbhc")]
+position = Vector2(0.646555, 10.3448)
 scale = Vector2(0.225862, 0.217244)

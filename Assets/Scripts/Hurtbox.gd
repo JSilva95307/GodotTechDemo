@@ -1,10 +1,11 @@
 class_name Hurtbox extends Area2D
 
-@export var Health = 20
-
 func _init() -> void:
-	collision_layer = 0
-	collision_mask = 2
+	#layer for checkpoint interaction
+	set_collision_layer_value(3, true)
+	#layer for hitbox detection
+	set_collision_layer_value(1, true)
+	set_collision_mask_value(2, true)
 
 func _ready() -> void:
 	connect("area_entered", self._on_area_entered)

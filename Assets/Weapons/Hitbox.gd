@@ -6,8 +6,9 @@ class_name Hitbox extends Area2D
 @export var height = 10.0
 
 func _init() -> void:
-	collision_layer = 2
-	collision_mask = 0
+	#Layer for hurtbox interaction
+	set_collision_layer_value(2, true)
+	set_collision_mask_value(1, true)
 
 func do_damage() -> void:
 	pass

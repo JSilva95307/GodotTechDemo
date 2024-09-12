@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://driwg5mp4nx56"]
+
+[ext_resource type="Script" path="res://Scenes/Landmarks/checkpoint.gd" id="1_785cg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_205xo"]
+
+[node name="Checkpoint" type="Area2D"]
+scale = Vector2(7.16, 7.50616)
+script = ExtResource("1_785cg")
+
+[node name="ActiveArea" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_205xo")

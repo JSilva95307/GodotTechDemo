@@ -34,7 +34,7 @@ sources/0 = SubResource("TileSetAtlasSource_mcjpp")
 position = Vector2(318, 230)
 
 [node name="Player Camera" type="Camera2D" parent="PlayerCharacter"]
-position = Vector2(-3.23275, 2.15517)
+position = Vector2(0.215519, 7.15256e-07)
 scale = Vector2(1.2069, 1.2069)
 zoom = Vector2(0.75, 0.75)
 

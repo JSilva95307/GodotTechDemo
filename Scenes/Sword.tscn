@@ -33,7 +33,6 @@ ability1 = NodePath("Ability 1")
 ability2 = NodePath("Ability 2")
 
 [node name="Primary 1" type="Area2D" parent="."]
-visible = false
 script = ExtResource("2_6xjgr")
 
 [node name="Short Hitbox" type="CollisionShape2D" parent="Primary 1"]
@@ -41,7 +40,6 @@ position = Vector2(76.25, -38.5)
 shape = SubResource("RectangleShape2D_yryjv")
 
 [node name="Primary 2" type="Area2D" parent="."]
-visible = false
 script = ExtResource("2_6xjgr")
 
 [node name="Medium Hitbox" type="CollisionShape2D" parent="Primary 2"]
@@ -49,7 +47,6 @@ position = Vector2(87.25, -51.5)
 shape = SubResource("RectangleShape2D_a4sls")
 
 [node name="Primary 3" type="Area2D" parent="."]
-visible = false
 script = ExtResource("2_6xjgr")
 
 [node name="Long Hitbox" type="CollisionShape2D" parent="Primary 3"]
@@ -57,7 +54,6 @@ position = Vector2(111.75, -34)
 shape = SubResource("RectangleShape2D_xw5vr")
 
 [node name="Secondary" type="Area2D" parent="."]
-visible = false
 script = ExtResource("2_6xjgr")
 
 [node name="Large Hitbox" type="CollisionShape2D" parent="Secondary"]
@@ -65,7 +61,6 @@ position = Vector2(101.25, -70.75)
 shape = SubResource("RectangleShape2D_827nf")
 
 [node name="Ability 1" type="Area2D" parent="."]
-visible = false
 script = ExtResource("2_6xjgr")
 
 [node name="Medium Hitbox" type="CollisionShape2D" parent="Ability 1"]
@@ -73,7 +68,6 @@ position = Vector2(83, -56)
 shape = SubResource("CircleShape2D_lpy7h")
 
 [node name="Ability 2" type="Area2D" parent="."]
-visible = false
 script = ExtResource("2_6xjgr")
 
 [node name="Wide Hitbox" type="CollisionShape2D" parent="Ability 2"]

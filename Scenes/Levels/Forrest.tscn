@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://bpxmldjg7tutf"]
+[gd_scene load_steps=9 format=4 uid="uid://bpxmldjg7tutf"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/forrest.gd" id="1_gl4im"]
 [ext_resource type="Texture2D" uid="uid://wo87ovqcox61" path="res://Assets/Sprites/Ground Tiles.png" id="2_524x8"]
 [ext_resource type="PackedScene" uid="uid://cqs05ujvangep" path="res://Scenes/Player.tscn" id="3_c7ha3"]
 [ext_resource type="Script" path="res://Assets/Weapons/Hitbox.gd" id="4_pyrx5"]
+[ext_resource type="PackedScene" uid="uid://driwg5mp4nx56" path="res://Scenes/Landmarks/Checkpoint.tscn" id="5_4s5t3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wb5n"]
 texture = ExtResource("2_524x8")
@@ -32,8 +33,10 @@ sources/0 = SubResource("TileSetAtlasSource_3wb5n")
 [sub_resource type="CircleShape2D" id="CircleShape2D_hkqog"]
 radius = 84.0952
 
-[node name="Forrest" type="Node2D"]
+[node name="Forrest" type="Node2D" node_paths=PackedStringArray("cur_checkpoint", "checkpoints")]
 script = ExtResource("1_gl4im")
+cur_checkpoint = NodePath("Checkpoint 1")
+checkpoints = [NodePath("Checkpoint 1"), NodePath("Checkpoint 2"), NodePath("Checkpoint 3")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(88, 44)
@@ -44,7 +47,7 @@ tile_set = SubResource("TileSet_hv4fg")
 position = Vector2(512, 156)
 
 [node name="Player Camera" type="Camera2D" parent="PlayerBody"]
-position = Vector2(-3.23275, 2.15517)
+position = Vector2(0.646554, -0.431034)
 scale = Vector2(1.2069, 1.2069)
 zoom = Vector2(0.75, 0.75)
 
@@ -55,5 +58,32 @@ damage = 20
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox"]
 position = Vector2(-125, 212)
 shape = SubResource("CircleShape2D_hkqog")
+
+[node name="DeathBox2" type="Area2D" parent="."]
+position = Vector2(2793, -1437)
+script = ExtResource("4_pyrx5")
+damage = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox2"]
+position = Vector2(-125, 212)
+shape = SubResource("CircleShape2D_hkqog")
+
+[node name="DeathBox3" type="Area2D" parent="."]
+position = Vector2(5322, -1135)
+script = ExtResource("4_pyrx5")
+damage = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox3"]
+position = Vector2(-125, 212)
+shape = SubResource("CircleShape2D_hkqog")
+
+[node name="Checkpoint 1" parent="." instance=ExtResource("5_4s5t3")]
+position = Vector2(497, 225)
+
+[node name="Checkpoint 2" parent="." instance=ExtResource("5_4s5t3")]
+position = Vector2(2298, -928)
+
+[node name="Checkpoint 3" parent="." instance=ExtResource("5_4s5t3")]
+position = Vector2(4455, -928)
 
 [connection signal="player_death" from="PlayerBody" to="." method="Player_Death_Reset"]
