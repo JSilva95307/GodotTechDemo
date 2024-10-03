@@ -16,3 +16,5 @@ func Physics_Update(delta: float) -> void:
 		Transitioned.emit(self, "run")
 	if Input.is_action_just_pressed("Player_Dash") and player.Can_Dash:
 		Transitioned.emit(self, "dash")
+	#if Input.is_action_just_pressed("Player_Primary"):
+	#	Transitioned.emit(self, "attack1")

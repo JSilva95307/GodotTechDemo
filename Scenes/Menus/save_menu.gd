@@ -1,17 +1,17 @@
-extends PlayerState
-
-func Enter():
-	animation_player.play("Player_Dash")
-	print_debug("attack 1 called")
+class_name Save_Menu 
+extends Control
+signal Resume
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func finished_attack() -> void:
-	Transitioned.emit(self, "Idle")
+func saved() -> void:
+	print_debug("you saved!")
+
+func resume() -> void:
+	Resume.emit()

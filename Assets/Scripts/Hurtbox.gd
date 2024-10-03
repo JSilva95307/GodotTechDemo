@@ -2,7 +2,7 @@ class_name Hurtbox extends Area2D
 
 func _init() -> void:
 	#layer for checkpoint interaction
-	set_collision_layer_value(3, true)
+	set_collision_mask_value(3, true)
 	#layer for hitbox detection
 	set_collision_layer_value(1, true)
 	set_collision_mask_value(2, true)

@@ -9,12 +9,12 @@
 [ext_resource type="Script" path="res://Scenes/run.gd" id="6_r7fv8"]
 [ext_resource type="Script" path="res://Scenes/jump.gd" id="7_e3om2"]
 [ext_resource type="Script" path="res://Scenes/weapon_manager.gd" id="8_p37xt"]
-[ext_resource type="Script" path="res://Assets/States/attack_1.gd" id="9_4ljlb"]
 [ext_resource type="Script" path="res://Assets/States/attack_2.gd" id="10_0yk3b"]
 [ext_resource type="PackedScene" uid="uid://mekjd5aptohs" path="res://Scenes/Sword.tscn" id="10_akbhc"]
 [ext_resource type="Script" path="res://Assets/States/attack_3.gd" id="11_a465j"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ycu3h"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_njlph"]
+radius = 9.92316
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f6f7n"]
 
@@ -113,6 +113,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [4, 5, 6, 7, 8, 9, 10, 11]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../StateMachine/Attack1")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finished_attack"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_5hxku"]
 length = 0.001
@@ -139,6 +153,20 @@ _data = {
 "RESET": SubResource("Animation_5hxku")
 }
 
+[sub_resource type="GDScript" id="GDScript_8jri6"]
+script/source = "extends \"res://Assets/States/attack_1.gd\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="PlayerBody" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(0.999985, -47)
 scale = Vector2(4.64, 4.64)
@@ -152,10 +180,11 @@ hframes = 5
 vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.215517)
-shape = SubResource("CircleShape2D_ycu3h")
+position = Vector2(3.23715e-06, -0.646552)
+shape = SubResource("CircleShape2D_njlph")
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 script = ExtResource("3_v82qo")
 
 [node name="Player_Hurtbox" type="CollisionShape2D" parent="Hurtbox"]
@@ -188,18 +217,23 @@ animation_player = NodePath("../../AnimationPlayer")
 script = ExtResource("4_tf1ds")
 animation_player = NodePath("../../AnimationPlayer")
 
-[node name="Attack1" type="Node" parent="StateMachine"]
-script = ExtResource("9_4ljlb")
+[node name="Attack1" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player")]
+script = SubResource("GDScript_8jri6")
+animation_player = NodePath("../../AnimationPlayer")
 
-[node name="Attack2" type="Node" parent="StateMachine"]
+[node name="Attack2" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("10_0yk3b")
+animation_player = NodePath("../../AnimationPlayer")
 
-[node name="Attack3" type="Node" parent="StateMachine"]
+[node name="Attack3" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("11_a465j")
+animation_player = NodePath("../../AnimationPlayer")
 
-[node name="WeaponManager" type="Node2D" parent="."]
+[node name="WeaponManager" type="Node2D" parent="." node_paths=PackedStringArray("starter_weapon")]
+visible = false
 position = Vector2(-0.862069, -0.215517)
 script = ExtResource("8_p37xt")
+starter_weapon = NodePath("Sword")
 
 [node name="Sword" parent="WeaponManager" instance=ExtResource("10_akbhc")]
 position = Vector2(0.646555, 10.3448)

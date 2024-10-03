@@ -5,11 +5,13 @@ class_name weapon_manager extends Node2D
 
 #default number of hitboxes for the different weapons
 	#Primary Combo
-@export var active_primaryHits : Array[Hitbox]
+var active_primary1 : Hitbox
+var active_primary2 : Hitbox
+var active_primary3 : Hitbox
 	#Secondary and abilities 1 + 2
-@export var active_secondaryHit : Hitbox
-@export var active_ability1Hit : Hitbox
-@export var active_ability2Hit : Hitbox
+var active_secondaryHit : Hitbox
+var active_ability1Hit : Hitbox
+var active_ability2Hit : Hitbox
 
 @export var starter_weapon : weapon_base
 var active_weapon : weapon_base

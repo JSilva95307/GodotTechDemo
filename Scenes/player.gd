@@ -19,7 +19,10 @@ class_name Player extends CharacterBody2D
 #health and number vars
 @export var health = 20.0
 
+var jump_limit = 1
+var jumps = 0
 var cur_dir = 1
+var coyote_time = 0.1
 signal player_death
 
 func _physics_process(delta: float) -> void:
@@ -44,6 +47,7 @@ func take_damage(damage: float) -> void:
 	print_debug( str(health) + " health remains!")
 	if health <= 0:
 		player_death.emit()
+		health = 20
 
 func heal(heal_amount : float) -> void:
 	health += abs(heal_amount)
@@ -51,3 +55,4 @@ func heal(heal_amount : float) -> void:
 func flip_player() -> void:
 	scale.x *= -1
 	cur_dir = direction
+	

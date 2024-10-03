@@ -1,12 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://driwg5mp4nx56"]
+[gd_scene load_steps=5 format=3 uid="uid://driwg5mp4nx56"]
 
 [ext_resource type="Script" path="res://Scenes/Landmarks/checkpoint.gd" id="1_785cg"]
+[ext_resource type="Texture2D" uid="uid://cq25cwpamb2pa" path="res://Assets/Sprites/Save Altar1.png" id="2_p2d8x"]
+[ext_resource type="Texture2D" uid="uid://dq338bi3wa5cu" path="res://Assets/Sprites/Save Prompt.png" id="3_glnyh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_205xo"]
+size = Vector2(25.9777, 25.579)
 
-[node name="Checkpoint" type="Area2D"]
+[node name="Checkpoint" type="Area2D" node_paths=PackedStringArray("Prompt")]
 scale = Vector2(7.16, 7.50616)
 script = ExtResource("1_785cg")
+Prompt = NodePath("Prompt")
 
 [node name="ActiveArea" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_205xo")
+
+[node name="Altar" type="Sprite2D" parent="."]
+position = Vector2(-2.27374e-13, 0)
+scale = Vector2(0.195574, 0.195574)
+texture = ExtResource("2_p2d8x")
+
+[node name="Prompt" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0.27933, -12.1234)
+scale = Vector2(0.091655, 0.0999179)
+texture = ExtResource("3_glnyh")

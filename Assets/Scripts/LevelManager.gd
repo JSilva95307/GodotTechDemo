@@ -1,9 +1,12 @@
 class_name level_manager extends Node2D
 
+@export var save_menu: Control
 @export var cur_checkpoint: Checkpoint
 @export var checkpoints: Array[Checkpoint]
 var respawn_point: Vector2
-var player : CharacterBody2D
+var player : Player
+var ispaused = false
+var flipped = false
 
 #get the player to keep track of health
 func _ready() -> void:
@@ -22,3 +25,20 @@ func Player_Death_Reset() -> void:
 func Set_Cur_Checkpoint(new_checkpoint: Checkpoint) -> void:
 	cur_checkpoint = new_checkpoint
 	respawn_point = new_checkpoint.position
+	Pause()
+
+func Exit_Save_Menu() -> void:
+	Pause()
+
+func Pause() -> void:
+	
+	if player.cur_dir < 0:
+		print_debug(save_menu.scale.x)
+		save_menu.scale.x *= -1
+	if not ispaused:
+		save_menu.show()
+		Engine.time_scale = 0
+	else:
+		save_menu.hide()
+		Engine.time_scale = 1
+	ispaused = !ispaused
