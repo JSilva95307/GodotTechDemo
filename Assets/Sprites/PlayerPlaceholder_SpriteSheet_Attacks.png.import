@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvuule5hgryv5"
-path="res://.godot/imported/PlayerPlaceholder.png-dedea3744ef49e33a88f184cc6f696a7.ctex"
+uid="uid://d36qscvk4f40k"
+path="res://.godot/imported/PlayerPlaceholder_SpriteSheet_Attacks.png-3bf5103d202fefe0ebf79ea907037e76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/PlayerPlaceholder.png"
-dest_files=["res://.godot/imported/PlayerPlaceholder.png-dedea3744ef49e33a88f184cc6f696a7.ctex"]
+source_file="res://Assets/Sprites/PlayerPlaceholder_SpriteSheet_Attacks.png"
+dest_files=["res://.godot/imported/PlayerPlaceholder_SpriteSheet_Attacks.png-3bf5103d202fefe0ebf79ea907037e76.ctex"]
 
 [params]
 
