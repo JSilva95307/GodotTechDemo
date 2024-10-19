@@ -17,14 +17,13 @@ var active_ability2Hit : Hitbox
 var active_weapon : weapon_base
 
 func _ready() -> void:
-	pass # Replace with function body.
+	active_weapon = starter_weapon
 
 func _process(delta: float) -> void:
 	pass
 
 func switch_weapon(new_weapon : int) -> void:
 	active_weapon = weapon_list[new_weapon]
-	
 
 func add_weapon(weapon : weapon_base) -> void: 
 	weapon_list.append(weapon)

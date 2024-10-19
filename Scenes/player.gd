@@ -11,7 +11,6 @@ class_name Player extends CharacterBody2D
 @export var Dash_Cooldown = 1.5
 #functionality vars
 @export var LetSpaceGo = false
-@export var RollTime = 0
 @export var IsDashing = false
 @export var IsInvul = false
 @export var IsFacingRight = false
@@ -43,8 +42,8 @@ func StartDashCD() :
 
 func take_damage(damage: float) -> void:
 	health -= damage
-	print_debug( str(damage) + " damage taken!")
-	print_debug( str(health) + " health remains!")
+	print_debug( "player " + str(damage) + " damage taken!")
+	print_debug( "player" + str(health) + " health remains!")
 	if health <= 0:
 		player_death.emit()
 		health = 20

@@ -6,13 +6,16 @@ var canSave = false
 
 var location : Vector2
 
+enum interact_with {
+	player = 3
+}
+
 func _physics_process(delta: float) -> void:
 	if canSave and Input.is_action_just_pressed("Player_Interact"):
 		entered.emit(self)
 
 func _init() -> void:
-	set_collision_layer_value(3, true)
-	set_collision_mask_value(1, true)
+	set_collision_mask_value(interact_with.player, true)
 
 func _ready() -> void:
 	connect("area_entered", self._on_area_entered)

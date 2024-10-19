@@ -11,9 +11,6 @@ class_name weapon_base extends Node2D
 
 func _init() -> void:
 	pass
-	#primary1.disabled = true
-	#primary2.disabled = true
-	#primary3.disabled = true
-	#secondary.disabled = true
-	#ability1.disabled = true
-	#ability2.disabled = true
+
+func switch_p1() -> void:
+	primary1.monitoring = false

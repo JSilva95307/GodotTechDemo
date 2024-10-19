@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://bpxmldjg7tutf"]
+[gd_scene load_steps=11 format=4 uid="uid://bpxmldjg7tutf"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/forrest.gd" id="1_gl4im"]
 [ext_resource type="Texture2D" uid="uid://wo87ovqcox61" path="res://Assets/Sprites/Ground Tiles.png" id="2_524x8"]
 [ext_resource type="PackedScene" uid="uid://cqs05ujvangep" path="res://Scenes/Player.tscn" id="3_c7ha3"]
+[ext_resource type="Script" path="res://Assets/Scripts/Enemy_Hitbox.gd" id="3_fm1en"]
 [ext_resource type="PackedScene" uid="uid://ccoin3o2y7mi6" path="res://Scenes/Menus/save_menu.tscn" id="4_1ps0y"]
-[ext_resource type="Script" path="res://Assets/Weapons/Hitbox.gd" id="4_pyrx5"]
 [ext_resource type="PackedScene" uid="uid://driwg5mp4nx56" path="res://Scenes/Landmarks/Checkpoint.tscn" id="5_4s5t3"]
+[ext_resource type="PackedScene" uid="uid://clcmat3f0c4sc" path="res://Scenes/dummy.tscn" id="7_4ygxy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wb5n"]
 texture = ExtResource("2_524x8")
@@ -46,8 +47,8 @@ tile_map_data = PackedByteArray("AAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAABAAIAAAAAAAA
 tile_set = SubResource("TileSet_hv4fg")
 
 [node name="DeathBox" type="Area2D" parent="."]
-script = ExtResource("4_pyrx5")
-damage = 20
+script = ExtResource("3_fm1en")
+damage = 40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox"]
 position = Vector2(-125, 212)
@@ -55,8 +56,8 @@ shape = SubResource("CircleShape2D_hkqog")
 
 [node name="DeathBox2" type="Area2D" parent="."]
 position = Vector2(2793, -1437)
-script = ExtResource("4_pyrx5")
-damage = 20
+script = ExtResource("3_fm1en")
+damage = 40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox2"]
 position = Vector2(-125, 212)
@@ -64,8 +65,8 @@ shape = SubResource("CircleShape2D_hkqog")
 
 [node name="DeathBox3" type="Area2D" parent="."]
 position = Vector2(5322, -1135)
-script = ExtResource("4_pyrx5")
-damage = 20
+script = ExtResource("3_fm1en")
+damage = 40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox3"]
 position = Vector2(-125, 212)
@@ -102,6 +103,9 @@ offset_bottom = -70.8927
 scale = Vector2(0.389609, 0.351385)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Dummy" parent="." instance=ExtResource("7_4ygxy")]
+position = Vector2(903, 252)
 
 [connection signal="player_death" from="PlayerBody" to="." method="Player_Death_Reset"]
 [connection signal="Resume" from="PlayerBody/Player Camera/Save menu" to="." method="Exit_Save_Menu"]

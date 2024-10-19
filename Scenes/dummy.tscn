@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://clcmat3f0c4sc"]
+
+[ext_resource type="Script" path="res://Assets/States/EnemyStates/dummy.gd" id="1_pkvgf"]
+[ext_resource type="Texture2D" uid="uid://c64fye78qoshs" path="res://icon.svg" id="2_tfdef"]
+[ext_resource type="Script" path="res://Assets/Scripts/Enemy_Hurtbox.gd" id="3_x1e7t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrxbc"]
+radius = 18.5067
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wxmxm"]
+radius = 34.0
+height = 68.0
+
+[node name="Dummy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_pkvgf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.861009, 0.861009)
+texture = ExtResource("2_tfdef")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+scale = Vector2(2.84, 3.86333)
+script = ExtResource("3_x1e7t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+scale = Vector2(1.02817, 0.730802)
+shape = SubResource("CircleShape2D_xrxbc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 1.6)
+shape = SubResource("CapsuleShape2D_wxmxm")
